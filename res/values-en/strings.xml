@@ -1,0 +1,7 @@
+<resources>
+
+    <string name="app_name">SMD 2013</string>
+    <string name="menu_settings">Настройки</string>
+    <string name="about">О программе</string>
+    <string name="about_text">Программа разработана специально для схемотехников\n\nРазработчик: \u003Ca href="mailto:mksmbtrsh@gmail.com"&amp;gt;Maksim Bartosh\u003C/a\u003E(\u003Ca href="https://play.google.com/store/search?q=maksim+bartosh&amp;c=apps"&amp;gt;GooglePlay\u003C/a\u003E)\n\nTranslated by \u003Ca href="mailto:address.for.job@gmail.com"\u003E Ksenia\u003C\n\nЗамечания, предложения, свои базы данных, сообщения об ошибках пишите \u003Ca href="mailto:mksmbtrsh@gmail.com"&amp;gt;мне\u003C/a\u003E.\n\nДля просмотра Datasheet необходим просмотрщик файлов формата PDF.</string>
+</resources>
