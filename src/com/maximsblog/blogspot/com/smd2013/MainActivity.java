@@ -27,20 +27,24 @@ import android.widget.EditText;
 public class MainActivity extends SherlockFragmentActivity {
 
 
-    private EditText mEditSearch;
+    private EditText mEditFilter;
+	private String mFilter;
 
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
 		OpenDBHelper mDBh = new OpenDBHelper(this);
+		if(savedInstanceState!=null)
+			mFilter = savedInstanceState.getString("filter");
     }
     
     @Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getSupportMenuInflater().inflate(R.menu.menu, menu);
 		menu.getItem(0).setActionView(R.layout.search_title);
-		mEditSearch = (EditText) menu.getItem(0).getActionView().findViewById(R.id.search_editText);
+		mEditFilter = (EditText) menu.getItem(0).getActionView().findViewById(R.id.search_editText);
+		mEditFilter.setText(mFilter == null ? "": mFilter);
         return super.onCreateOptionsMenu(menu);
 	}
     
@@ -51,9 +55,15 @@ public class MainActivity extends SherlockFragmentActivity {
     		about.show(getSupportFragmentManager(), "about");
     	} else if(item.getItemId() == R.id.menu_next_search){
     		CatalogFragment cf= (CatalogFragment) getSupportFragmentManager().findFragmentById(R.id.fragment1);
-    		cf.setFilter(mEditSearch.getText().toString());
+    		cf.setFilter(mEditFilter.getText().toString());
     	}
     	return super.onMenuItemSelected(featureId, item);
+    }
+   
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+    	outState.putString("filter", mEditFilter.getText().toString());
+    	super.onSaveInstanceState(outState);
     }
     
 }
