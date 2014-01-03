@@ -27,6 +27,7 @@
             android:name="RecordsDbHelper"
             android:authorities="maximsblog.blogspot.com.smd2013.providers.db" >
         </provider>
+        <activity android:name="ItemsClickDialog"></activity>
     </application>
 
 </manifest>

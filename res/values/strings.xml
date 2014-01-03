@@ -12,5 +12,10 @@
     <string name="body">Корпус:</string>
     <string name="st">Стиль:</string>
     <string name="parameters">Парам:</string>
+    <string name="viewdatasheet">Посмотреть Datasheet</string>
+    <string name="searchdatasheet">Искать Datasheet</string>
+    <string name="searchininternet">Искать в интернете</string>
+    <string name="viewbody">Посмотреть корпус</string>
+    <string name="viewtsoklevka">Посмотреть цоклевку</string>
 
 </resources>

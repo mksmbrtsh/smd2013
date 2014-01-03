@@ -90,7 +90,27 @@ public final class CatalogFragment extends Fragment implements
 	@Override
 	public void onItemClick(AdapterView<?> arg0, View arg1, int position,
 			long arg3) {
-
+		Intent intent = new Intent(getActivity(), ItemsClickDialog.class);
+		Cursor cursor = adapter.getCursor();
+		cursor.moveToPosition(position);
+		String code = cursor.getString(8);
+		String partnumber = cursor.getString(0);
+		String style = cursor.getString(4);
+		String manufacturer = cursor.getString(3);
+		String parameters = cursor.getString(7);
+		String base = cursor.getString(5);
+		String packege = cursor.getString(6);
+		
+		intent.putExtra("code", code);
+		intent.putExtra("partnumber", partnumber);
+		intent.putExtra("style", style);
+		intent.putExtra("manufacturer", manufacturer);
+		intent.putExtra("parameters", parameters);
+		intent.putExtra("base", base);
+		intent.putExtra("packege", packege);
+		
+		startActivity(intent);
+		
 	}
 
 	@Override
