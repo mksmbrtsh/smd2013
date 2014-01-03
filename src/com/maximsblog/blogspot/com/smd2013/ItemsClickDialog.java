@@ -2,6 +2,8 @@ package com.maximsblog.blogspot.com.smd2013;
 
 import java.io.File;
 
+import com.maximsblog.blogspot.com.smd2013.ViewerFragment.ViewerActivity;
+
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.AlertDialog;
@@ -44,6 +46,11 @@ public class ItemsClickDialog extends Activity implements OnItemClickListener {
 	private String mCode;
 	private String mName;
 	private String mPartnumber;
+	private String mStyle;
+	private String mManufacturer;
+	private String mParameters;
+	private String mBase;
+	private String mPackege;
 
 	/** Called when the activity is first created. */
 	@Override
@@ -55,7 +62,11 @@ public class ItemsClickDialog extends Activity implements OnItemClickListener {
 		mCode = intent.getStringExtra("code");
 		mName = intent.getStringExtra("name");
 		mPartnumber = intent.getStringExtra("partnumber");
-		
+		mStyle = intent.getStringExtra("style");
+		mManufacturer = intent.getStringExtra("manufacturer");
+		mParameters = intent.getStringExtra("parameters");
+		mBase = intent.getStringExtra("base");
+		mPackege = intent.getStringExtra("packege");
 		((TextView) findViewById(R.id.title_txt)).setText(mCode + " \\ "
 				+ mPartnumber);
 		
@@ -234,27 +245,19 @@ public class ItemsClickDialog extends Activity implements OnItemClickListener {
 
 			//}
 		} else if (itemss[arg2].id == R.string.viewbody) {
-			/*Intent intent = new Intent(this, ViewerActivity.class);
-
-			File file = new File(mDBpath).getParentFile();
-			String workdir = file.getAbsolutePath();
-			intent.putExtra("file", new File(workdir, "Packages"
-					+ file.separator + mItems.Body + ".gif").getAbsolutePath());
-			intent.putExtra("items", mItems);
-			intent.putExtra("id", R.id.body);
+			Intent intent = new Intent(this, ViewerActivity.class);
+			intent.putExtra("file", "Packages/" + mBase.toLowerCase() + ".gif");
+			intent.putExtra("id", 2);
 			startActivity(intent);
-			finish();*/
+			finish();
 
 		} else if (itemss[arg2].id == R.string.viewtsoklevka) {
-			/*Intent intent = new Intent(this, ViewerActivity.class);
-			File file = new File(mDBpath).getParentFile();
-			String workdir = file.getAbsolutePath();
-			intent.putExtra("file", new File(workdir, "Base" + file.separator
-					+ mItems.Tsoklevka + ".gif").getAbsolutePath());
-			intent.putExtra("id", R.id.tsoklevka);
-			intent.putExtra("items", mItems);
+			Intent intent = new Intent(this, ViewerActivity.class);
+			intent.putExtra("file", "Base/" + mPackege.toLowerCase() + ".gif");
+			intent.putExtra("id", 1);
 			startActivity(intent);
-			finish();*/
+			finish();
+			finish();
 		} else if (itemss[arg2].id == R.string.searchininternet) {
 			Intent intent = new Intent(Intent.ACTION_WEB_SEARCH);  
 			intent.putExtra(SearchManager.QUERY, mPartnumber);  
