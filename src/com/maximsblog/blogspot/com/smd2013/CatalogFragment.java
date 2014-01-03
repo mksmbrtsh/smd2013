@@ -95,9 +95,15 @@ public final class CatalogFragment extends Fragment implements
 
 	@Override
 	public Loader<Cursor> onCreateLoader(int arg0, Bundle arg1) {
-		String f = mFilter.length()>0 ?  "name" + " LIKE '%" + mFilter.toUpperCase() + "%' OR "
-				+ "partnumber" + " LIKE '%" + mFilter.toUpperCase()
-				+ "%'" : null;
+		String f = mFilter.length() > 0 ?  
+				"name" + " LIKE '%" + mFilter.toUpperCase() + "%' OR "
+				+ "partnumber" + " LIKE '%" + mFilter.toUpperCase()	+ "%' OR " 
+				+ "manufacturer" + " LIKE '%" + mFilter.toUpperCase()	+ "%' OR "
+				+ "parameters" + " LIKE '%" + mFilter.toUpperCase()	+ "%' OR "
+				+ "code" + " LIKE '%" + mFilter.toUpperCase()	+ "%' OR "
+				+ "base" + " LIKE '%" + mFilter.toUpperCase()	+ "%' OR "
+				+ "package" + " LIKE '%" + mFilter.toUpperCase()	+ "%'"
+				:	null;
 		CursorLoader loader = new CursorLoader(this.getActivity(),
 				RecordsDbHelper.CONTENT_URI_ITEMS, null, f, null, null);
 		return loader;
