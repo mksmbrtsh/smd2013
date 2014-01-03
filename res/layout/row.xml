@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
@@ -8,6 +9,10 @@
         android:id="@+id/code"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/coden"
+        android:gravity="right"
         android:text="Large Text"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -15,6 +20,10 @@
         android:id="@+id/partnumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/code"
+         android:gravity="right"
+        android:layout_toRightOf="@+id/partnumbern"
         android:text="Large Text"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -22,35 +31,126 @@
         android:id="@+id/manufacturer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/code"
+        android:layout_alignParentRight="true"
+         android:gravity="right"
+        android:layout_below="@+id/partnumber"
         android:text="TextView" />
 
     <TextView
         android:id="@+id/style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/manufacturer"
+         android:gravity="right"
+        android:layout_toRightOf="@+id/stylen"
         android:text="TextView" />
 
     <TextView
         android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/style"
+         android:gravity="right"
+        android:layout_toRightOf="@+id/namen"
         android:text="TextView" />
 
     <TextView
         android:id="@+id/parameters"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/name"
+         android:gravity="right"
+        android:layout_toRightOf="@+id/basen"
         android:text="TextView" />
 
     <TextView
         android:id="@+id/base"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/parameters"
+        android:layout_alignParentRight="true"
+         android:gravity="right"
+        android:layout_below="@+id/parameters"
         android:text="TextView" />
 
     <TextView
         android:id="@+id/packege"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/base"
+         android:gravity="right"
+        android:layout_toRightOf="@+id/packegen"
         android:text="TextView" />
-</LinearLayout>
+    
+    <TextView
+        android:id="@+id/coden"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="@string/code"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/partnumbern"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/code"
+        android:text="@string/pnr"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/manufacturern"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/partnumber"
+        android:text="@string/manufacturer" />
+
+    <TextView
+        android:id="@+id/stylen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/manufacturer"
+        android:text="@string/st" />
+
+    <TextView
+        android:id="@+id/namen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/style"
+        android:text="@string/name" />
+
+    <TextView
+        android:id="@+id/parametersn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/name"
+        android:text="@string/parameters" />
+
+    <TextView
+        android:id="@+id/basen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/parameters"
+        android:text="@string/tsoklevka" />
+
+    <TextView
+        android:id="@+id/packegen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/base"
+        android:text="@string/body" />
+
+</RelativeLayout>
