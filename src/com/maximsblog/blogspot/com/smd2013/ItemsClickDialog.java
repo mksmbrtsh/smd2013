@@ -38,10 +38,6 @@ public class ItemsClickDialog extends Activity implements OnItemClickListener {
 
 	private TextView messageTxt;
 	private ListView listView;
-	private boolean mBodyColumn;
-	private boolean mManufacturerColumn;
-	private boolean mTsoklevkaColumn;
-	private boolean mParametersColumn;
 
 	private Item[] itemss;
 	private String mDBpath;
@@ -68,7 +64,11 @@ public class ItemsClickDialog extends Activity implements OnItemClickListener {
 		mManufacturer = intent.getStringExtra("manufacturer");
 		mParameters = intent.getStringExtra("parameters");
 		mBase = intent.getStringExtra("base");
+		if(mBase == null)
+			mBase = "";
 		mPackege = intent.getStringExtra("packege");
+		if(mPackege == null)
+			mPackege = "";
 		((TextView) findViewById(R.id.title_txt)).setText(mCode + " \\ "
 				+ mPartnumber);
 		
@@ -78,16 +78,6 @@ public class ItemsClickDialog extends Activity implements OnItemClickListener {
 		else
 			messageTxt.setVisibility(View.GONE);
 		listView = (ListView) findViewById(R.id.listView1);
-		View w = findViewById(R.id.w);
-		w.setOnClickListener(new View.OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				finish();
-				
-			}
-
-		});
 
 		String[] items_text = new String[4];
 		SharedPreferences preferences = PreferenceManager
@@ -105,13 +95,13 @@ public class ItemsClickDialog extends Activity implements OnItemClickListener {
 		items_text[3] = getString(R.string.viewtsoklevka);
 
 		itemss = new Item[4];
-		itemss[0] = new Item(items_text[0], R.drawable.ic_launcher,
+		itemss[0] = new Item(items_text[0],
 				R.string.searchdatasheet);
-		itemss[1] = new Item(items_text[1], R.drawable.ic_launcher,
+		itemss[1] = new Item(items_text[1],
 				R.string.searchininternet);
-			itemss[2] = new Item(items_text[2], R.drawable.ic_launcher,
+			itemss[2] = new Item(items_text[2],
 					R.string.viewbody);
-			itemss[3] = new Item(items_text[3], R.drawable.ic_launcher,
+			itemss[3] = new Item(items_text[3],
 					R.string.viewtsoklevka);
 
 		ListAdapter adapter = new ArrayAdapter<Item>(this,
@@ -121,15 +111,6 @@ public class ItemsClickDialog extends Activity implements OnItemClickListener {
 				// User super class to create the View
 				View v = super.getView(pos, cView, par);
 				TextView tv = (TextView) v.findViewById(android.R.id.text1);
-
-				// Put the image on the TextView
-				tv.setCompoundDrawablesWithIntrinsicBounds(itemss[pos].icon, 0,
-						0, 0);
-
-				// Add margin between image and text (support various screen
-				// densities)
-				int dp5 = (int) (5 * getResources().getDisplayMetrics().density + 0.5f);
-				tv.setCompoundDrawablePadding(dp5);
 				tv.setTextColor(Color.GRAY);
 				return v;
 			}
@@ -140,12 +121,10 @@ public class ItemsClickDialog extends Activity implements OnItemClickListener {
 
 	private static class Item {
 		public final String text;
-		public final int icon;
 		public final int id;
 
-		public Item(String text, Integer icon, Integer ident) {
+		public Item(String text, Integer ident) {
 			this.text = text;
-			this.icon = icon;
 			this.id = ident;
 		}
 
@@ -178,11 +157,11 @@ public class ItemsClickDialog extends Activity implements OnItemClickListener {
 				finish();
 			} else {
 				final Item[] i = new Item[5];
-				i[0] = new Item("datasheetcatalog.net", R.drawable.ic_launcher, 0);
-				i[1] = new Item("alldatacheet.com", R.drawable.ic_launcher, 0);
-				i[2] = new Item("datasheet4u.com", R.drawable.ic_launcher, 0);
-				i[3] = new Item("ic-on-line.cn", R.drawable.ic_launcher, 0);
-				i[4] = new Item("chipfind.ru", R.drawable.ic_launcher, 0);
+				i[0] = new Item("datasheetcatalog.net", 0);
+				i[1] = new Item("alldatacheet.com", 0);
+				i[2] = new Item("datasheet4u.com", 0);
+				i[3] = new Item("ic-on-line.cn", 0);
+				i[4] = new Item("chipfind.ru", 0);
 
 				ListAdapter adapter = new ArrayAdapter<Item>(this,
 						android.R.layout.select_dialog_item,
@@ -193,16 +172,6 @@ public class ItemsClickDialog extends Activity implements OnItemClickListener {
 						View v = super.getView(pos, cView, par);
 						TextView tv = (TextView) v
 								.findViewById(android.R.id.text1);
-
-						// Put the image on the TextView
-						tv.setCompoundDrawablesWithIntrinsicBounds(i[pos].icon,
-								0, 0, 0);
-
-						// Add margin between image and text (support various
-						// screen
-						// densities)
-						int dp5 = (int) (5 * getResources().getDisplayMetrics().density + 0.5f);
-						tv.setCompoundDrawablePadding(dp5);
 						tv.setTextColor(Color.GRAY);
 						return v;
 					}
