@@ -10,8 +10,11 @@
         android:id="@+id/menu_next_search"
     	android:showAsAction="always"
     	android:icon="@@android:drawable/ic_menu_search"/>
+     <item android:id="@+id/pdf_path" android:title="@string/pdf_path"></item>
+    
     <item
         android:id="@+id/about_item"
         android:title="@string/about"/>
+   
 
 </menu>

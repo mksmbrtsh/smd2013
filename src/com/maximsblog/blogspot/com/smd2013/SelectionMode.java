@@ -1,4 +1,4 @@
-package maximsblog.blogspot.com.smdcode;
+package com.maximsblog.blogspot.com.smd2013;
 
 public class SelectionMode {
 	public static final int MODE_CREATE = 0;

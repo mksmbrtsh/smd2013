@@ -1,4 +1,5 @@
 package com.maximsblog.blogspot.com.smd2013;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -97,6 +98,8 @@ public class FileDialog extends ListActivity {
 	private File selectedFile;
 	private HashMap<String, Integer> lastPositions = new HashMap<String, Integer>();
 
+	private Button selectButton;
+
 	/**
 	 * Called when the activity is first created. Configura todos os parametros
 	 * de entrada e das VIEWS..
@@ -111,7 +114,7 @@ public class FileDialog extends ListActivity {
 
 		inputManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
 
-		/*selectButton = (Button) findViewById(R.id.fdButtonSelect);
+		selectButton = (Button) findViewById(R.id.fdButtonSelect);
 		selectButton.setEnabled(false);
 		selectButton.setOnClickListener(new OnClickListener() {
 
@@ -123,7 +126,7 @@ public class FileDialog extends ListActivity {
 					finish();
 				}
 			}
-		});*/
+		});
 
 		
 
@@ -142,11 +145,9 @@ public class FileDialog extends ListActivity {
 		if (canSelectDir) {
 			File file = new File(startPath);
 			selectedFile = file;
-			//selectButton.setEnabled(true);
+			selectButton.setEnabled(true);
 		}
 		getDir(startPath);
-		
-		
 	}
 
 	private void getDir(String dirPath) {
@@ -204,8 +205,6 @@ public class FileDialog extends ListActivity {
 		TreeMap<String, String> filesMap = new TreeMap<String, String>();
 		TreeMap<String, String> filesPathMap = new TreeMap<String, String>();
 		for (File file : files) {
-			if(file.getName().startsWith("."))
-				continue;
 			if (file.isDirectory()) {
 				String dirName = file.getName();
 				dirsMap.put(dirName, dirName);

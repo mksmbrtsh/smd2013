@@ -20,4 +20,6 @@
 	<string name="no_data">Нет данных</string>
     <string name="cant_read_folder">нельзя открыть директорию!</string>
     <string name="location">Путь</string>
+    <string name="pdf_path">Путь к datasheet\'ам</string>
+    <string name="sel_path">Выбрать директорию</string>
 </resources>

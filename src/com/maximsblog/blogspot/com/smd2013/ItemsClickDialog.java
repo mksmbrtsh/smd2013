@@ -11,6 +11,7 @@ import android.app.SearchManager;
 import android.app.AlertDialog.Builder;
 import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.content.DialogInterface.OnCancelListener;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
@@ -19,6 +20,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
@@ -88,13 +90,16 @@ public class ItemsClickDialog extends Activity implements OnItemClickListener {
 		});
 
 		String[] items_text = new String[4];
-		//File file = new File(SettingsActivity.getStringValue(this, "pdfpath"),
-		//		mItems.Name + ".pdf");
-		//if (file.exists()) {
-		//	items_text[0] = getString(R.string.viewdatasheet);
-		//} else {
+		SharedPreferences preferences = PreferenceManager
+				.getDefaultSharedPreferences(this);
+		String pdfpath = preferences.getString("pdfpath", getCacheDir().getAbsolutePath());
+		
+		File file = new File(pdfpath, mPartnumber + ".pdf");
+		if (file.exists()) {
+			items_text[0] = getString(R.string.viewdatasheet);
+		} else {
 			items_text[0] = getString(R.string.searchdatasheet);
-		//}
+		}
 		items_text[1] = getString(R.string.searchininternet);
 		items_text[2] = getString(R.string.viewbody);
 		items_text[3] = getString(R.string.viewtsoklevka);
@@ -153,8 +158,11 @@ public class ItemsClickDialog extends Activity implements OnItemClickListener {
 	@Override
 	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
 		if (itemss[arg2].id == R.string.searchdatasheet) {
-			/*File file = new File(SettingsActivity.getStringValue(this,
-					"pdfpath"), mItems.Name + ".pdf");
+			SharedPreferences preferences = PreferenceManager
+    				.getDefaultSharedPreferences(this);
+    		String pdfpath = preferences.getString("pdfpath", getCacheDir().getAbsolutePath());
+    		
+			File file = new File(pdfpath, mPartnumber + ".pdf");
 			if (file.exists()) {
 				Uri path = Uri.fromFile(file);
 				Intent intent = new Intent(Intent.ACTION_VIEW);
@@ -164,11 +172,11 @@ public class ItemsClickDialog extends Activity implements OnItemClickListener {
 				try {
 					startActivity(intent);
 				} catch (ActivityNotFoundException e) {
-					Toast.makeText(this, R.string.error_notfindpdfopenapp,
-							Toast.LENGTH_SHORT).show();
+					//Toast.makeText(this, R.string.error_notfindpdfopenapp,
+					//		Toast.LENGTH_SHORT).show();
 				}
 				finish();
-			} else {*/
+			} else {
 				final Item[] i = new Item[5];
 				i[0] = new Item("datasheetcatalog.net", R.drawable.ic_launcher, 0);
 				i[1] = new Item("alldatacheet.com", R.drawable.ic_launcher, 0);
@@ -243,7 +251,7 @@ public class ItemsClickDialog extends Activity implements OnItemClickListener {
 						.create();
 				a.show();
 
-			//}
+			}
 		} else if (itemss[arg2].id == R.string.viewbody) {
 			Intent intent = new Intent(this, ViewerActivity.class);
 			intent.putExtra("file", "Packages/" + mBase.toLowerCase() + ".gif");

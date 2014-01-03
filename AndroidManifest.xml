@@ -7,6 +7,7 @@
     <uses-sdk
         android:minSdkVersion="8"
         android:targetSdkVersion="16" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:debuggable="true"
@@ -29,6 +30,7 @@
         </provider>
         <activity android:name="ItemsClickDialog"></activity>
         <activity android:name="ViewerFragment$ViewerActivity"></activity>
+        <activity android:name="FileDialog"></activity>
     </application>
 
 </manifest>

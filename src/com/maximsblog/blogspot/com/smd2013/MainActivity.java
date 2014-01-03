@@ -1,12 +1,18 @@
 package com.maximsblog.blogspot.com.smd2013;
 
+import java.io.File;
 import java.util.Locale;
 
 import android.app.SearchManager;
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.content.res.Configuration;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.os.Environment;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -58,9 +64,33 @@ public class MainActivity extends SherlockFragmentActivity {
     	} else if(item.getItemId() == R.id.menu_next_search){
     		CatalogFragment cf= (CatalogFragment) getSupportFragmentManager().findFragmentById(R.id.fragment1);
     		cf.setFilter(mEditFilter.getText().toString());
+    	} else if(item.getItemId() == R.id.pdf_path) {
+    		SharedPreferences preferences = PreferenceManager
+    				.getDefaultSharedPreferences(this);
+    		String pdfpath = preferences.getString("pdfpath", getCacheDir().getAbsolutePath());
+    		Intent intent = new Intent(this,
+					FileDialog.class);
+    		intent.putExtra(FileDialog.START_PATH, pdfpath);
+			intent.putExtra(FileDialog.CAN_SELECT_DIR, true);
+			intent.putExtra(FileDialog.SELECTION_MODE,
+					SelectionMode.MODE_OPEN);
+			startActivityForResult(intent, 777);
+			
     	}
     	return super.onMenuItemSelected(featureId, item);
     }
+    
+    @Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		if (data != null && requestCode == 777 && resultCode == RESULT_OK) {
+			File f = new File(data.getStringExtra(FileDialog.RESULT_PATH));
+			String pdfpath = f.getAbsolutePath();
+			Editor editor = PreferenceManager.getDefaultSharedPreferences(this)
+					.edit();
+			editor.putString("pdfpath", pdfpath);
+			editor.commit();
+		}
+	}
    
     @Override
     protected void onSaveInstanceState(Bundle outState) {
