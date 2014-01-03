@@ -1,7 +1,24 @@
 <resources>
-
     <string name="app_name">SMD 2013</string>
-    <string name="menu_settings">Настройки</string>
-    <string name="about">О программе</string>
-    <string name="about_text">Программа разработана специально для схемотехников\n\nРазработчик: \u003Ca href="mailto:mksmbtrsh@gmail.com"&amp;gt;Maksim Bartosh\u003C/a\u003E(\u003Ca href="https://play.google.com/store/search?q=maksim+bartosh&amp;c=apps"&amp;gt;GooglePlay\u003C/a\u003E)\n\nTranslated by \u003Ca href="mailto:address.for.job@gmail.com"\u003E Ksenia\u003C\n\nЗамечания, предложения, свои базы данных, сообщения об ошибках пишите \u003Ca href="mailto:mksmbtrsh@gmail.com"&amp;gt;мне\u003C/a\u003E.\n\nДля просмотра Datasheet необходим просмотрщик файлов формата PDF.</string>
+    <string name="menu_settings">Settings</string>
+    <string name="about">About</string>
+    <string name="about_text">The programme is specially made for circuit design engineers.\n\nProgrammer: <a href="mailto:mksmbtrsh@gmail.com">Maksim Bartosh</a> (<a href="https://play.google.com/store/search?q=maksim+bartosh&amp;c=apps">GooglePlay</a>)\n\nTranslated by <a href="mailto:address.for.job@gmail.com">Ksenia</a>\n\nYou are welcome <a href="mailto:mksmbtrsh@gmail.com">to send me</a> notes, offers, your database, error reports.\n\nYou need PDF-viewer for browsing Datasheet. Datasheet has been partnumber name.</string>
+    <string name="code">Code:</string>
+    <string name="pnr">Partnumber:</string>
+    <string name="name">Name:</string>
+    <string name="manufacturer">Manufacturer:</string>
+    <string name="tsoklevka">Package:</string>
+    <string name="body">Base:</string>
+    <string name="st">Style:</string>
+    <string name="parameters">Parameters:</string>
+    <string name="viewdatasheet">View datasheet</string>
+    <string name="searchdatasheet">Search datasheet</string>
+    <string name="searchininternet">Search internet</string>
+    <string name="viewbody">View body</string>
+    <string name="viewtsoklevka">View package</string>
+	<string name="no_data">No data</string>
+    <string name="cant_read_folder">Can\'t open dir!</string>
+    <string name="location">Path</string>
+    <string name="pdf_path">Path to datasheets</string>
+    <string name="sel_path">Select path to datasheets dir</string>
 </resources>
