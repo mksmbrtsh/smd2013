@@ -30,7 +30,7 @@ import android.widget.TextView;
 
 public final class CatalogFragment extends Fragment implements
 		LoaderCallbacks<Cursor>, OnItemClickListener {
-	private SimpleCursorAdapter adapter;
+	private SmdAdapter adapter;
 	private EditText mSearch;
 	private ListView mList;
 	private Cursor mCursor;
@@ -66,12 +66,12 @@ public final class CatalogFragment extends Fragment implements
 		mList = (ListView) layout.findViewById(R.id.catalog_list);
 
 		mList.setOnItemClickListener(this);
-		adapter = new SimpleCursorAdapter(getActivity(), R.layout.row, null,
+		adapter = new SmdAdapter(getActivity(), R.layout.row, null,
 				new String[] { "name", "code", "partnumber", "style",
 						"manufacturer", "parameters", "base", "package" },
 				new int[] { R.id.name, R.id.code, R.id.partnumber, R.id.style,
 						R.id.manufacturer, R.id.parameters, R.id.base,
-						R.id.packege });
+						R.id.packege }, mFilter);
 		mList.setAdapter(adapter);
 		mEmptyView = (ProgressBar) layout.findViewById(R.id.empty);
 
@@ -106,6 +106,7 @@ public final class CatalogFragment extends Fragment implements
 	@Override
 	public void onLoadFinished(Loader<Cursor> arg0, Cursor cursor) {
 		adapter.swapCursor(cursor);
+		adapter.setFilter(mFilter);
 		mEmptyView.setVisibility(View.GONE);
 		mList.setVisibility(View.VISIBLE);
 		if(mList.getCount() > 0 )

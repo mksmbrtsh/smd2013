@@ -37,6 +37,8 @@ public class MainActivity extends SherlockFragmentActivity {
 		OpenDBHelper mDBh = new OpenDBHelper(this);
 		if(savedInstanceState!=null)
 			mFilter = savedInstanceState.getString("filter");
+		else 
+			mFilter = "";
     }
     
     @Override
@@ -44,7 +46,7 @@ public class MainActivity extends SherlockFragmentActivity {
 		getSupportMenuInflater().inflate(R.menu.menu, menu);
 		menu.getItem(0).setActionView(R.layout.search_title);
 		mEditFilter = (EditText) menu.getItem(0).getActionView().findViewById(R.id.search_editText);
-		mEditFilter.setText(mFilter == null ? "": mFilter);
+		mEditFilter.setText(mFilter);
         return super.onCreateOptionsMenu(menu);
 	}
     
@@ -62,7 +64,8 @@ public class MainActivity extends SherlockFragmentActivity {
    
     @Override
     protected void onSaveInstanceState(Bundle outState) {
-    	outState.putString("filter", mEditFilter.getText().toString());
+    	if(mEditFilter!=null)
+    		outState.putString("filter", mEditFilter.getText().toString());
     	super.onSaveInstanceState(outState);
     }
     
