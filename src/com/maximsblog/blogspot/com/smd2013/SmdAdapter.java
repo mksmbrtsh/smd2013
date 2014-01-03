@@ -35,22 +35,18 @@ public class SmdAdapter extends SimpleCursorAdapter {
 		super.bindView(view, context, cursor);
 		for (int i1 = 0, cnt1 = this.mTo.length; i1 < cnt1; i1++) {
 			TextView t = (TextView) view.findViewById(mTo[i1]);
-			if (t.getText().length() > 0) {
-				t.setVisibility(View.VISIBLE);
-				Spannable wordtoSpan = new SpannableString(t.getText());
-				int i = t.getText().toString().toLowerCase()
-						.indexOf(mFilter.toLowerCase());
-				if (i != -1) {
-					wordtoSpan.setSpan(backgroundColorSpan, i,
-							i + mFilter.length(),
-							Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-					wordtoSpan.setSpan(foregroundColorSpan, i,
-							i + mFilter.length(),
-							Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-					t.setText(wordtoSpan);
-				}
-			} else
-				t.setVisibility(View.GONE);
+			Spannable wordtoSpan = new SpannableString(t.getText());
+			int i = t.getText().toString().toLowerCase()
+					.indexOf(mFilter.toLowerCase());
+			if (i != -1) {
+				wordtoSpan.setSpan(backgroundColorSpan, i,
+						i + mFilter.length(),
+						Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+				wordtoSpan.setSpan(foregroundColorSpan, i,
+						i + mFilter.length(),
+						Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+				t.setText(wordtoSpan);
+			}
 		}
 	}
 }
