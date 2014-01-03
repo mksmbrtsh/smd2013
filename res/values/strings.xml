@@ -17,5 +17,7 @@
     <string name="searchininternet">Искать в интернете</string>
     <string name="viewbody">Посмотреть корпус</string>
     <string name="viewtsoklevka">Посмотреть цоклевку</string>
-
+	<string name="no_data">Нет данных</string>
+    <string name="cant_read_folder">нельзя открыть директорию!</string>
+    <string name="location">Путь</string>
 </resources>
