@@ -8,6 +8,8 @@
         android:id="@+id/search_editText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:hint="@string/hint"
         android:ems="10" >
 
         <requestFocus />

@@ -2,7 +2,7 @@
     <string name="app_name">SMD 2013</string>
     <string name="menu_settings">Настройки</string>
     <string name="about">О программе</string>
-    <string name="about_text">Программа разработана специально для схемотехников\n\nРазработчик: <a href="mailto:mksmbtrsh@gmail.com">Maksim Bartosh</a> (<a href="https://play.google.com/store/search?q=maksim+bartosh&amp;c=apps">GooglePlay</a>)\n\nПеревод: <a href="mailto:address.for.job@gmail.com">Ksenia</a>\n\nЗамечания, предложения, свои базы данных, сообщения об ошибках пишите <a href="mailto:mksmbtrsh@gmail.com">мне</a>\n\nДля просмотра Datasheet необходим просмотрщик файлов формата PDF, файл datasheet\'а должен называться как чертежный номер.</string>
+    <string name="about_text">Программа разработана специально для схемотехников\n\nРазработчик: <a href="mailto:mksmbtrsh@gmail.com">Maksim Bartosh</a> (<a href="https://play.google.com/store/search?q=maksim+bartosh&amp;c=apps">GooglePlay</a>)\n\nПеревод: <a href="mailto:address.for.job@gmail.com">Ksenia</a>\n\nЗамечания, предложения, свои базы данных, сообщения об ошибках пишите <a href="mailto:mksmbtrsh@gmail.com">мне</a>\n\nДля просмотра Datasheet необходим просмотрщик файлов формата PDF, файл datasheet\'а должен называться как чертежный номер.\n\n База включает в себя порядка 200000 SMD</string>
     <string name="code">Код:</string>
     <string name="pnr">Чертежный номер:</string>
     <string name="name">Наименование:</string>
@@ -21,4 +21,5 @@
     <string name="location">Путь</string>
     <string name="pdf_path">Путь к datasheet\'ам</string>
     <string name="sel_path">Выбрать директорию</string>
+    <string name="hint">Введите для поиска SMD</string>
 </resources>
