@@ -38,7 +38,7 @@ public class SmdAdapter extends SimpleCursorAdapter {
 			Spannable wordtoSpan = new SpannableString(t.getText());
 			int i = t.getText().toString().toLowerCase()
 					.indexOf(mFilter.toLowerCase());
-			if (i != -1) {
+			if (i != -1 && mFilter.length() > 0) {
 				wordtoSpan.setSpan(backgroundColorSpan, i,
 						i + mFilter.length(),
 						Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
